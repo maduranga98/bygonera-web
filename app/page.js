@@ -2,8 +2,11 @@
 
 import AboutSection from "@/components/Aboutus";
 import VintagePhotoGallery from "@/components/Album";
+import VintageContactForm from "@/components/ContactForm";
+import VintageFooter from "@/components/Footer";
 import VintageHero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
+import VintageTestimonials from "@/components/Testimonials";
 
 // Main Page Component
 export default function Home() {
@@ -13,6 +16,9 @@ export default function Home() {
       <VintageHero />
       <AboutSection />
       <VintagePhotoGallery />
+      <VintageTestimonials />
+      <VintageContactForm />
+      <VintageFooter />
     </div>
   );
 }
