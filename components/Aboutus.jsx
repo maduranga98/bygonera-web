@@ -1,14 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import {
-  Camera,
-  Users,
-  Clock,
-  Star,
-  Heart,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const AboutSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -29,15 +21,6 @@ const AboutSection = () => {
 
   // Portfolio images that subtly showcase work
   const portfolioImages = [
-    "/aboutus/img6.jpg",
-    "/aboutus/img7.jpg",
-    "/aboutus/img8.jpg",
-    "/aboutus/img9.jpg",
-    "/aboutus/img10.jpg",
-    "/aboutus/img11.jpg",
-  ];
-
-  const backgroundImages = [
     "/aboutus/img6.jpg",
     "/aboutus/img7.jpg",
     "/aboutus/img8.jpg",
@@ -190,33 +173,19 @@ const AboutSection = () => {
       <div className="relative z-10 container mx-auto px-6 py-20">
         {/* Floating Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-amber-400 to-orange-600 rounded-full mb-8 shadow-2xl animate-pulse">
-            <Camera className="w-12 h-12 text-white" />
-          </div>
-          <h2 className="text-6xl md:text-7xl font-bold text-white mb-6 font-serif drop-shadow-2xl">
-            Bygone Era Artist
-          </h2>
-          <div className="flex items-center justify-center space-x-4 mb-6">
-            <div className="w-16 h-1 bg-gradient-to-r from-transparent to-amber-400"></div>
-            <Star
-              className="w-6 h-6 text-amber-400 fill-current animate-spin"
-              style={{ animationDuration: "8s" }}
-            />
-            <div className="w-16 h-1 bg-gradient-to-r from-amber-400 to-transparent"></div>
-          </div>
+          <img src="\logo2.png" alt="Logo" className="w-64  mx-auto mb-6" />
           <p className="text-2xl text-amber-100 font-light italic max-w-3xl mx-auto drop-shadow-lg">
-            "Where every moment becomes a timeless masterpiece"
+            "More than just photographs, it's your story in art"
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Dynamic Portfolio Showcase */}
           <div className="space-y-6">
-            {/* Main Portfolio Slider */}
+            {/* Main Portfolio Slider - Removed wide frame */}
             <div className="relative group">
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-600/30 to-orange-600/30 rounded-3xl transform rotate-2 group-hover:rotate-3 transition-all duration-700"></div>
-              <div className="relative bg-white/95 p-6 rounded-3xl shadow-2xl backdrop-blur-sm">
-                <div className="relative overflow-hidden rounded-2xl h-96">
+              <div className="relative">
+                <div className="relative overflow-hidden rounded-2xl h-96 shadow-2xl">
                   <img
                     src={portfolioImages[currentImageIndex]}
                     alt="Portfolio showcase"
@@ -237,8 +206,8 @@ const AboutSection = () => {
                     <ChevronRight className="w-5 h-5" />
                   </button>
 
-                  {/* Image Counter */}
-                  <div className="absolute bottom-4 right-4 bg-black/60 text-white px-3 py-1 rounded-full text-sm">
+                  {/* Centered Image Indicator */}
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/60 text-white px-3 py-1 rounded-full text-sm">
                     {currentImageIndex + 1} / {portfolioImages.length}
                   </div>
                 </div>
@@ -304,83 +273,111 @@ const AboutSection = () => {
               </h3>
               <div className="space-y-4 text-amber-800/90 leading-relaxed relative">
                 <p className="text-lg font-light">
-                  Welcome to Bygone Era Artist, where every photograph tells a
-                  story that transcends time. We specialize in capturing vintage
-                  aesthetics with contemporary artistry.
+                  At Bygone Era, we don't just capture moments-we create
+                  timeless, elegant memories filled with emotion and artistry.
+                  Every photograph tells a story, preserving the feelings that
+                  make it special. We take the time to understand your vision,
+                  uncovering what matters most to you.
                 </p>
                 <p>
-                  Our passion lies in bringing the romantic charm of bygone eras
-                  into your most precious moments. From sepia tones to classic
-                  portraiture, we craft visual narratives treasured for
-                  generations.
+                  Through a personalized approach, we craft a unique plan to
+                  bring your dream to life. Behind the lens is Manusha
+                  Hasaranga, an artist with nearly six years of experience. With
+                  a passion for storytelling, he transforms photographs into
+                  emotions you can relive forever. On your most cherished day,
+                  we promise more than just images —we create memories that feel
+                  as beautiful as they look. Because at Bygone Era, your moments
+                  deserve to be timeless.
                 </p>
-              </div>
-
-              {/* Elegant CTA */}
-              <div className="mt-8 relative">
-                <div className="bg-gradient-to-r from-amber-600 to-orange-600 p-6 rounded-2xl text-white shadow-xl transform hover:scale-105 transition-all duration-500">
-                  <div className="flex items-center mb-3">
-                    <Heart className="w-5 h-5 mr-2 animate-pulse" />
-                    <h4 className="text-xl font-bold">Create Magic Together</h4>
-                  </div>
-                  <p className="mb-4 text-amber-100 text-sm">
-                    Step into a world where moments become masterpieces.
-                  </p>
-                  <button className="bg-white text-amber-700 px-6 py-3 rounded-full font-bold hover:bg-amber-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full">
-                    Book Your Session
-                  </button>
-                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Animated Stats Row at Bottom */}
+        {/* Enhanced Stats Row - More Attractive without Icons */}
         <div id="stats-section" className="mt-20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
               {
-                icon: Users,
                 number: counters.clients,
                 suffix: "+",
                 label: "Happy Clients",
-                color: "from-amber-500 to-orange-500",
+                gradient: "from-amber-500 via-orange-500 to-yellow-500",
+                shadowColor: "shadow-amber-500/50",
+                borderGradient: "from-amber-400 to-orange-400",
               },
               {
-                icon: Camera,
                 number: counters.sessions,
                 suffix: "+",
                 label: "Sessions",
-                color: "from-orange-500 to-red-500",
+                gradient: "from-orange-500 via-red-500 to-pink-500",
+                shadowColor: "shadow-orange-500/50",
+                borderGradient: "from-orange-400 to-red-400",
               },
               {
-                icon: Clock,
                 number: counters.years,
                 suffix: "+",
                 label: "Years Experience",
-                color: "from-red-500 to-pink-500",
+                gradient: "from-red-500 via-pink-500 to-purple-500",
+                shadowColor: "shadow-red-500/50",
+                borderGradient: "from-red-400 to-pink-400",
               },
             ].map((stat, index) => (
               <div
                 key={index}
-                className="bg-white/90 backdrop-blur-sm p-8 rounded-3xl shadow-2xl border border-amber-200/30 text-center group hover:shadow-3xl transition-all duration-700 transform hover:-translate-y-3"
+                className="group relative"
                 style={{
                   animation: `fadeInUp 0.8s ease-out ${index * 0.2}s both`,
                 }}
               >
+                {/* Gradient Border Effect */}
                 <div
-                  className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${stat.color} rounded-full mb-6 group-hover:scale-110 transition-transform duration-500 shadow-xl`}
-                >
-                  <stat.icon className="w-8 h-8 text-white" />
+                  className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} rounded-3xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-500`}
+                ></div>
+
+                {/* Main Card */}
+                <div className="relative bg-white/95 backdrop-blur-sm p-8 rounded-3xl shadow-2xl border border-amber-200/30 text-center hover:shadow-3xl transition-all duration-700 transform hover:-translate-y-3 overflow-hidden">
+                  {/* Decorative Background Pattern */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-100 via-orange-100 to-red-100"></div>
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `
+                        radial-gradient(circle at 30% 30%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(160, 82, 45, 0.05) 0%, transparent 50%)
+                      `,
+                        backgroundSize: "100px 100px, 150px 150px",
+                      }}
+                    ></div>
+                  </div>
+
+                  {/* Number with Gradient Text */}
+                  <div className="relative mb-4">
+                    <div
+                      className={`text-6xl font-bold bg-gradient-to-br ${stat.gradient} bg-clip-text text-transparent mb-2 font-serif`}
+                    >
+                      {stat.number}
+                      <span className="text-4xl">{stat.suffix}</span>
+                    </div>
+
+                    {/* Animated underline */}
+                    <div className="w-20 h-1 mx-auto bg-gradient-to-r from-transparent via-amber-400 to-transparent rounded-full"></div>
+                  </div>
+
+                  {/* Label */}
+                  <div className="text-amber-700 font-medium text-lg tracking-wide">
+                    {stat.label}
+                  </div>
+
+                  {/* Hover Effect - Gradient Orb */}
+                  <div
+                    className={`absolute -bottom-8 -right-8 w-24 h-24 bg-gradient-to-br ${stat.gradient} rounded-full blur-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-500`}
+                  ></div>
+                  <div
+                    className={`absolute -top-8 -left-8 w-24 h-24 bg-gradient-to-br ${stat.gradient} rounded-full blur-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-500`}
+                  ></div>
                 </div>
-                <div className="text-5xl font-bold text-amber-900 mb-3 font-serif">
-                  {stat.number}
-                  <span className="text-3xl">{stat.suffix}</span>
-                </div>
-                <div className="text-amber-700 font-medium text-lg">
-                  {stat.label}
-                </div>
-                <div className="w-full h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent mt-4 rounded-full"></div>
               </div>
             ))}
           </div>

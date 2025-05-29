@@ -8,7 +8,6 @@ import {
   MapPin,
   Clock,
   Send,
-  Heart,
   Instagram,
   Facebook,
   CheckCircle,
@@ -72,390 +71,382 @@ const VintageContactForm = () => {
   };
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 overflow-hidden">
-      {/* Background Elements */}
+    <section className="relative py-16 md:py-20 bg-gray-50">
+      {/* Subtle Background Elements */}
       <div className="absolute inset-0">
-        {/* Vintage texture overlay */}
-        <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100"></div>
+
+        {/* Minimal decorative pattern */}
+        <div className="absolute inset-0 opacity-5">
           <div
             className="absolute inset-0"
             style={{
-              backgroundImage: `
-              radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
-              radial-gradient(circle at 75% 75%, rgba(160, 82, 45, 0.05) 0%, transparent 50%)
-            `,
-              backgroundSize: "200px 200px, 300px 300px",
+              backgroundImage:
+                "radial-gradient(circle at 50% 50%, #6b7280 1px, transparent 1px)",
+              backgroundSize: "80px 80px",
             }}
-          />
-        </div>
-
-        {/* Floating vintage elements */}
-        <div className="absolute inset-0">
-          {[...Array(8)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute opacity-10"
-              style={{
-                left: `${5 + i * 12}%`,
-                top: `${15 + (i % 4) * 20}%`,
-                animation: `float 10s ease-in-out infinite`,
-                animationDelay: `${i * 1.2}s`,
-              }}
-            >
-              <Camera className="w-4 h-4 text-amber-600" />
-            </div>
-          ))}
+          ></div>
         </div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-600 to-orange-600 rounded-full mb-6 shadow-xl">
-            <Heart className="w-8 h-8 text-white animate-pulse" />
+      <div className="relative z-10 container mx-auto px-4 sm:px-6">
+        {/* Professional Header */}
+        <div className="text-center mb-12 md:mb-16">
+          <div className="inline-block mb-6">
+            <Camera className="w-8 h-8 text-gray-700 mx-auto mb-4" />
+            <div className="w-16 h-0.5 bg-gray-300 mx-auto"></div>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold text-amber-900 mb-4 font-serif">
-            Let's Create Magic Together
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-6 font-serif tracking-wide">
+            Let's Discuss Your Vision
           </h2>
 
-          <div className="flex items-center justify-center space-x-4 mb-4">
-            <div className="w-16 h-1 bg-gradient-to-r from-transparent to-amber-600 rounded-full" />
-            <Camera className="w-6 h-6 text-amber-600" />
-            <div className="w-16 h-1 bg-gradient-to-l from-transparent to-amber-600 rounded-full" />
-          </div>
-
-          <p className="text-lg text-amber-700 max-w-2xl mx-auto">
-            Ready to capture your precious moments with vintage elegance? Get in
-            touch and let's discuss your vision.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Professional vintage photography services crafted to capture your
+            most precious moments with timeless elegance.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Information */}
-          <div className="space-y-8">
-            {/* Contact Details Card */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-amber-200/50">
-              <h3 className="text-2xl font-bold text-amber-900 mb-6 font-serif">
-                Get In Touch
+        <div className="grid lg:grid-cols-5 gap-8 md:gap-12 max-w-7xl mx-auto">
+          {/* Contact Information - Left Side */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* Contact Details */}
+            <div className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-gray-200">
+              <h3 className="text-xl font-medium text-gray-900 mb-6 font-serif">
+                Contact Information
               </h3>
 
               <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="bg-gradient-to-br from-amber-500 to-orange-600 p-3 rounded-full shadow-lg">
-                    <Phone className="w-5 h-5 text-white" />
+                <div className="flex items-start space-x-4">
+                  <div className="bg-gray-100 p-2.5 rounded-lg">
+                    <Phone className="w-4 h-4 text-gray-700" />
                   </div>
                   <div>
-                    <p className="font-semibold text-amber-900">Phone</p>
-                    <p className="text-amber-700">+94 77 799 0726</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="bg-gradient-to-br from-amber-500 to-orange-600 p-3 rounded-full shadow-lg">
-                    <Mail className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-amber-900">Email</p>
-                    <p className="text-amber-700">bygoneeraartist@gmail.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="bg-gradient-to-br from-amber-500 to-orange-600 p-3 rounded-full shadow-lg">
-                    <MapPin className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-amber-900">Location</p>
-                    <p className="text-amber-700">Kuliyapitiya, Sri Lanka</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="bg-gradient-to-br from-amber-500 to-orange-600 p-3 rounded-full shadow-lg">
-                    <Clock className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-amber-900">
-                      Working Hours
+                    <p className="font-medium text-gray-900 text-sm">Phone</p>
+                    <p className="text-gray-600 text-sm mt-0.5">
+                      +94 77 799 0726
                     </p>
-                    <p className="text-amber-700">
-                      Mon - Sat: 9:00 AM - 6:00 PM
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="bg-gray-100 p-2.5 rounded-lg">
+                    <Mail className="w-4 h-4 text-gray-700" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900 text-sm">Email</p>
+                    <p className="text-gray-600 text-sm mt-0.5">
+                      bygoneeraartist@gmail.com
                     </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="bg-gray-100 p-2.5 rounded-lg">
+                    <MapPin className="w-4 h-4 text-gray-700" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900 text-sm">
+                      Location
+                    </p>
+                    <p className="text-gray-600 text-sm mt-0.5">
+                      Kuliyapitiya, Sri Lanka
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="bg-gray-100 p-2.5 rounded-lg">
+                    <Clock className="w-4 h-4 text-gray-700" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-gray-900 text-sm">
+                      Business Hours
+                    </p>
+                    <p className="text-gray-600 text-sm mt-0.5">
+                      Monday - Saturday
+                    </p>
+                    <p className="text-gray-600 text-sm">9:00 AM - 6:00 PM</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Social Media & Additional Info */}
-            <div className="bg-gradient-to-br from-amber-600 to-orange-600 rounded-3xl p-8 shadow-xl text-white">
-              <h3 className="text-xl font-bold mb-4 font-serif">
-                Follow Our Journey
+            {/* Social Media */}
+            <div className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-gray-200">
+              <h3 className="text-xl font-medium text-gray-900 mb-4 font-serif">
+                Follow Our Work
               </h3>
-              <p className="text-amber-100 mb-6">
-                Stay connected and see our latest vintage photography work on
-                social media.
+              <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+                Stay updated with our latest photography projects and
+                behind-the-scenes moments.
               </p>
 
-              <div className="flex space-x-4 mb-6">
+              <div className="flex space-x-3">
                 <a
                   href="https://web.facebook.com/bygoneeraartist"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 transform hover:scale-110"
+                  className="bg-gray-100 hover:bg-gray-200 p-3 rounded-lg transition-colors duration-200"
                 >
-                  <Facebook className="w-5 h-5" />
+                  <Facebook className="w-4 h-4 text-gray-700" />
                 </a>
                 <a
                   href="https://www.instagram.com/bygoneeraartist"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white/20 hover:bg-white/30 p-3 rounded-full transition-all duration-300 transform hover:scale-110"
+                  className="bg-gray-100 hover:bg-gray-200 p-3 rounded-lg transition-colors duration-200"
                 >
-                  <Instagram className="w-5 h-5" />
+                  <Instagram className="w-4 h-4 text-gray-700" />
                 </a>
               </div>
+            </div>
 
-              <div className="bg-white/20 rounded-2xl p-4">
-                <p className="text-sm text-amber-100">
-                  <strong>Quick Response:</strong> We typically respond to
-                  inquiries within 2-4 hours during business hours.
-                </p>
+            {/* Professional Note */}
+            <div className="bg-gray-900 rounded-xl p-6 md:p-8 text-white">
+              <h3 className="text-lg font-medium mb-3 font-serif">
+                Professional Service
+              </h3>
+              <p className="text-gray-300 text-sm leading-relaxed mb-4">
+                We typically respond to all inquiries within 2-4 hours during
+                business hours. Each session is personally crafted to reflect
+                your unique story.
+              </p>
+              <div className="flex items-center space-x-2 text-sm">
+                <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                <span className="text-gray-300">Available for bookings</span>
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-amber-200/50">
-            <h3 className="text-2xl font-bold text-amber-900 mb-6 font-serif">
-              Send Us a Message
-            </h3>
+          {/* Contact Form - Right Side */}
+          <div className="lg:col-span-3">
+            <div className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-gray-200">
+              <h3 className="text-xl font-medium text-gray-900 mb-6 font-serif">
+                Send Us a Message
+              </h3>
 
-            <div className="space-y-6">
-              {/* Name Field */}
-              <div>
-                <label className="block text-amber-900 font-medium mb-2">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full p-4 rounded-xl border border-amber-300 focus:border-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-600/20 transition-all duration-300 bg-white/80 placeholder-amber-600/50 text-amber-900"
-                  placeholder="Enter your full name"
-                />
-              </div>
-
-              {/* Email and Phone */}
-              <div className="grid md:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Name Field */}
                 <div>
-                  <label className="block text-amber-900 font-medium mb-2">
-                    Email Address *
+                  <label className="block text-gray-700 font-medium mb-2 text-sm">
+                    Full Name *
                   </label>
                   <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
+                    type="text"
+                    name="name"
+                    value={formData.name}
                     onChange={handleChange}
-                    className="w-full p-4 rounded-xl border border-amber-300 focus:border-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-600/20 transition-all duration-300 bg-white/80 placeholder-amber-600/50 text-amber-900"
-                    placeholder="your@email.com"
+                    className="w-full p-3 rounded-lg border border-gray-300 focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500 transition-all duration-200 bg-white text-gray-900"
+                    placeholder="Enter your full name"
+                    required
                   />
                 </div>
 
+                {/* Email and Phone */}
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-gray-700 font-medium mb-2 text-sm">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full p-3 rounded-lg border border-gray-300 focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500 transition-all duration-200 bg-white text-gray-900"
+                      placeholder="your@email.com"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-gray-700 font-medium mb-2 text-sm">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full p-3 rounded-lg border border-gray-300 focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500 transition-all duration-200 bg-white text-gray-900"
+                      placeholder="+94 77 xxx xxxx"
+                    />
+                  </div>
+                </div>
+
+                {/* Service and Date */}
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-gray-700 font-medium mb-2 text-sm">
+                      Photography Service *
+                    </label>
+                    <select
+                      name="service"
+                      value={formData.service}
+                      onChange={handleChange}
+                      className="w-full p-3 rounded-lg border border-gray-300 focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500 transition-all duration-200 bg-white text-gray-900"
+                      required
+                    >
+                      <option value="">Select a service</option>
+                      {services.map((service) => (
+                        <option key={service} value={service}>
+                          {service}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-gray-700 font-medium mb-2 text-sm">
+                      Preferred Date
+                    </label>
+                    <input
+                      type="date"
+                      name="date"
+                      value={formData.date}
+                      onChange={handleChange}
+                      className="w-full p-3 rounded-lg border border-gray-300 focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500 transition-all duration-200 bg-white text-gray-900"
+                    />
+                  </div>
+                </div>
+
+                {/* Message */}
                 <div>
-                  <label className="block text-amber-900 font-medium mb-2">
-                    Phone Number
+                  <label className="block text-gray-700 font-medium mb-2 text-sm">
+                    Tell Us About Your Vision *
                   </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
+                  <textarea
+                    name="message"
+                    value={formData.message}
                     onChange={handleChange}
-                    className="w-full p-4 rounded-xl border border-amber-300 focus:border-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-600/20 transition-all duration-300 bg-white/80 placeholder-amber-600/50 text-amber-900"
-                    placeholder="+94 77 xxx xxxx"
+                    rows={5}
+                    className="w-full p-3 rounded-lg border border-gray-300 focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500 resize-none transition-all duration-200 bg-white text-gray-900"
+                    placeholder="Describe your photography needs, style preferences, location ideas, or any special requirements..."
+                    required
                   />
                 </div>
-              </div>
 
-              {/* Service and Date */}
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-amber-900 font-medium mb-2">
-                    Photography Service *
-                  </label>
-                  <select
-                    name="service"
-                    value={formData.service}
-                    onChange={handleChange}
-                    className="w-full p-4 rounded-xl border border-amber-300 focus:border-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-600/20 transition-all duration-300 bg-white/80 text-amber-900"
-                  >
-                    <option value="">Select a service</option>
-                    {services.map((service) => (
-                      <option key={service} value={service}>
-                        {service}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-amber-900 font-medium mb-2">
-                    Preferred Date
-                  </label>
-                  <input
-                    type="date"
-                    name="date"
-                    value={formData.date}
-                    onChange={handleChange}
-                    className="w-full p-4 rounded-xl border border-amber-300 focus:border-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-600/20 transition-all duration-300 bg-white/80 text-amber-900"
-                  />
-                </div>
-              </div>
-
-              {/* Message */}
-              <div>
-                <label className="block text-amber-900 font-medium mb-2">
-                  Tell Us About Your Vision *
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={5}
-                  className="w-full p-4 rounded-xl border border-amber-300 focus:border-amber-600 focus:outline-none focus:ring-2 focus:ring-amber-600/20 resize-none transition-all duration-300 bg-white/80 placeholder-amber-600/50 text-amber-900"
-                  placeholder="Describe your photography needs, style preferences, location ideas, or any special requirements..."
-                />
-              </div>
-
-              {/* Submit Button */}
-              <button
-                onClick={handleSubmit}
-                disabled={isSubmitting}
-                className={`w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 ${
-                  isSubmitting
-                    ? "bg-amber-400 text-amber-900 cursor-not-allowed"
-                    : "bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white"
-                }`}
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-amber-900"></div>
-                    <span>Sending Message...</span>
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-5 h-5" />
-                    <span>Send Message</span>
-                  </>
-                )}
-              </button>
-
-              {/* Status Messages */}
-              {submitStatus && (
-                <div
-                  className={`p-4 rounded-xl flex items-center space-x-3 ${
-                    submitStatus === "success"
-                      ? "bg-green-100 border border-green-300"
-                      : "bg-red-100 border border-red-300"
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`w-full py-3 px-6 rounded-lg font-medium text-sm transition-all duration-200 flex items-center justify-center space-x-2 ${
+                    isSubmitting
+                      ? "bg-gray-400 text-white cursor-not-allowed"
+                      : "bg-gray-900 hover:bg-gray-800 text-white"
                   }`}
                 >
-                  {submitStatus === "success" ? (
+                  {isSubmitting ? (
                     <>
-                      <CheckCircle className="w-5 h-5 text-green-600" />
-                      <p className="text-green-800">
-                        Thank you! Your message has been sent successfully.
-                        We'll get back to you soon!
-                      </p>
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                      <span>Sending Message...</span>
                     </>
                   ) : (
                     <>
-                      <AlertCircle className="w-5 h-5 text-red-600" />
-                      <p className="text-red-800">
-                        Sorry, there was an error sending your message. Please
-                        try again or contact us directly.
-                      </p>
+                      <Send className="w-4 h-4" />
+                      <span>Send Message</span>
                     </>
                   )}
-                </div>
-              )}
+                </button>
 
-              <p className="text-sm text-amber-600 text-center">
-                * Required fields. Your information is kept private and secure.
-              </p>
+                {/* Status Messages */}
+                {submitStatus && (
+                  <div
+                    className={`p-4 rounded-lg flex items-center space-x-3 ${
+                      submitStatus === "success"
+                        ? "bg-green-50 border border-green-200"
+                        : "bg-red-50 border border-red-200"
+                    }`}
+                  >
+                    {submitStatus === "success" ? (
+                      <>
+                        <CheckCircle className="w-5 h-5 text-green-600" />
+                        <p className="text-green-800 text-sm">
+                          Thank you! Your message has been sent successfully.
+                          We'll get back to you soon.
+                        </p>
+                      </>
+                    ) : (
+                      <>
+                        <AlertCircle className="w-5 h-5 text-red-600" />
+                        <p className="text-red-800 text-sm">
+                          Sorry, there was an error sending your message. Please
+                          try again or contact us directly.
+                        </p>
+                      </>
+                    )}
+                  </div>
+                )}
+
+                <p className="text-xs text-gray-500 text-center">
+                  * Required fields. Your information is kept private and
+                  secure.
+                </p>
+              </form>
             </div>
           </div>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-amber-700 via-orange-700 to-red-700 p-6 rounded-2xl shadow-xl max-w-3xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-3 font-serif">
-              Ready to Book Your Session?
-            </h3>
-            <p className="text-amber-100 mb-4">
-              Call us directly for immediate assistance and availability
-            </p>
-            <a
-              href="tel:+94777990726"
-              className="inline-flex items-center bg-white hover:bg-amber-50 text-amber-700 px-6 py-3 rounded-full font-bold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-            >
-              <Phone className="w-5 h-5 mr-2" />
-              +94 77 799 0726
-            </a>
-          </div>
-        </div>
-
-        {/* Additional Info Section */}
+        {/* Professional Services Grid */}
         <div className="grid md:grid-cols-3 gap-6 mt-16 max-w-4xl mx-auto">
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg border border-amber-200/50">
-            <div className="bg-gradient-to-br from-amber-500 to-orange-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Heart className="w-6 h-6 text-white" />
+          <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200">
+            <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <Camera className="w-5 h-5 text-gray-700" />
             </div>
-            <h4 className="font-bold text-amber-900 mb-2">
-              Personalized Service
+            <h4 className="font-medium text-gray-900 mb-2 text-sm">
+              Personalized Approach
             </h4>
-            <p className="text-amber-700 text-sm">
+            <p className="text-gray-600 text-sm leading-relaxed">
               Every session is tailored to your unique vision and story
             </p>
           </div>
 
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg border border-amber-200/50">
-            <div className="bg-gradient-to-br from-amber-500 to-orange-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Camera className="w-6 h-6 text-white" />
+          <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200">
+            <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <CheckCircle className="w-5 h-5 text-gray-700" />
             </div>
-            <h4 className="font-bold text-amber-900 mb-2">
+            <h4 className="font-medium text-gray-900 mb-2 text-sm">
               Professional Quality
             </h4>
-            <p className="text-amber-700 text-sm">
-              High-end equipment and expert techniques for stunning results
+            <p className="text-gray-600 text-sm leading-relaxed">
+              High-end equipment and expert techniques for exceptional results
             </p>
           </div>
 
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg border border-amber-200/50">
-            <div className="bg-gradient-to-br from-amber-500 to-orange-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Clock className="w-6 h-6 text-white" />
+          <div className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200">
+            <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+              <Clock className="w-5 h-5 text-gray-700" />
             </div>
-            <h4 className="font-bold text-amber-900 mb-2">Quick Turnaround</h4>
-            <p className="text-amber-700 text-sm">
-              Edited photos delivered within 1-2 weeks of your session
+            <h4 className="font-medium text-gray-900 mb-2 text-sm">
+              Timely Delivery
+            </h4>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Professionally edited photos delivered within 1-2 weeks
             </p>
           </div>
         </div>
-      </div>
 
-      {/* Custom Animations */}
-      <style jsx>{`
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0px) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-8px) rotate(3deg);
-          }
-        }
-      `}</style>
+        {/* Direct Contact CTA */}
+        <div className="text-center mt-12">
+          <div className="bg-white rounded-xl p-6 md:p-8 shadow-sm border border-gray-200 max-w-2xl mx-auto">
+            <h3 className="text-lg font-medium text-gray-900 mb-3 font-serif">
+              Prefer to speak directly?
+            </h3>
+            <p className="text-gray-600 text-sm mb-6">
+              Call us for immediate assistance and to discuss your photography
+              needs
+            </p>
+            <a
+              href="tel:+94777990726"
+              className="inline-flex items-center bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-medium text-sm transition-colors duration-200"
+            >
+              <Phone className="w-4 h-4 mr-2" />
+              +94 77 799 0726
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
