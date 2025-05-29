@@ -13,7 +13,7 @@ import {
 const VintageTestimonials = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-  // Concise testimonials data
+  // Compact testimonials with related background images
   const testimonials = [
     {
       id: 1,
@@ -21,23 +21,43 @@ const VintageTestimonials = () => {
       role: "Wedding Couple",
       text: "Our wedding photos are absolutely breathtaking! The vintage aesthetic captured the timeless romance we always dreamed of.",
       photo:
-        "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=300&h=300&fit=crop",
+      backgroundImage:
+        "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1920&h=1080&fit=crop",
+      category: "Wedding",
     },
     {
       id: 2,
       name: "Dilshan Fernando",
-      role: "Corporate Executive",
+      role: "Executive",
       text: "The vintage portrait session exceeded all expectations. The photographer's attention to detail is remarkable.",
       photo:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop",
+      backgroundImage:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&h=1080&fit=crop",
+      category: "Portrait",
     },
     {
       id: 3,
       name: "Malika Jayawardena",
       role: "Fashion Designer",
-      text: "The artistic vision created the most stunning fashion portfolio. Every shot feels like a piece of art from a bygone era.",
+      text: "The artistic vision created the most stunning fashion portfolio. Every shot feels like art from a bygone era.",
       photo:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b605?w=400&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1494790108755-2616b612b605?w=300&h=300&fit=crop",
+      backgroundImage:
+        "https://images.unsplash.com/photo-1529958030586-3aae4ca485ff?w=1920&h=1080&fit=crop",
+      category: "Fashion",
+    },
+    {
+      id: 4,
+      name: "Rajesh & Priya",
+      role: "Anniversary Couple",
+      text: "Celebrating our 25th anniversary with these vintage-inspired photos was magical. Beautiful work!",
+      photo:
+        "https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=300&h=300&fit=crop",
+      backgroundImage:
+        "https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?w=1920&h=1080&fit=crop",
+      category: "Couple",
     },
   ];
 
@@ -62,106 +82,114 @@ const VintageTestimonials = () => {
   const current = testimonials[currentTestimonial];
 
   return (
-    <section className="relative py-20 bg-gradient-to-br from-amber-900 via-orange-900 to-red-900 overflow-hidden">
-      {/* Background Elements */}
+    <section className="relative py-16 md:py-20 overflow-hidden">
+      {/* Dynamic Background - Changes with each testimonial */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/80 via-orange-800/60 to-red-900/80" />
+        <img
+          key={current.id}
+          src={current.backgroundImage}
+          alt={`${current.name}'s photography session`}
+          className="w-full h-full object-cover transition-all duration-1000 ease-in-out sepia-[0.4] brightness-60"
+        />
 
-        {/* Floating vintage elements */}
-        <div className="absolute inset-0">
-          {[...Array(6)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute opacity-10"
-              style={{
-                left: `${10 + i * 15}%`,
-                top: `${20 + (i % 3) * 30}%`,
-                animation: `float 8s ease-in-out infinite`,
-                animationDelay: `${i * 1.5}s`,
-              }}
-            >
-              <Camera className="w-6 h-6 text-amber-300" />
-            </div>
-          ))}
-        </div>
+        {/* Overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-amber-900/70 to-black/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/70"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-6">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full mb-6 shadow-xl">
-            <Heart className="w-8 h-8 text-white" />
-          </div>
+      <div className="relative z-10 container mx-auto px-4 sm:px-6">
+        {/* Compact Header */}
+        <div className="text-center mb-8">
+          <img
+            src="\logo2.png"
+            alt="logo"
+            className="mb-6 inline-flex items-center justify-center w-60"
+          />
 
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-serif">
-            What Our Clients Say
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 font-serif">
+            Client Stories
           </h2>
 
-          <div className="flex items-center justify-center space-x-4 mb-4">
-            <div className="w-16 h-1 bg-amber-400 rounded-full" />
-            <Quote className="w-6 h-6 text-amber-300 fill-current" />
-            <div className="w-16 h-1 bg-amber-400 rounded-full" />
+          <div className="flex items-center justify-center space-x-3 mb-2">
+            <div className="w-8 h-0.5 bg-amber-400 rounded-full" />
+            <Quote className="w-5 h-5 text-amber-300 fill-current" />
+            <div className="w-8 h-0.5 bg-amber-400 rounded-full" />
           </div>
         </div>
 
-        {/* Main Testimonial */}
+        {/* Compact Main Testimonial */}
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-12 border border-amber-200/50">
-            <div className="grid md:grid-cols-3 gap-8 items-center">
-              {/* Client Photo */}
+          <div className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl p-6 md:p-8 border border-amber-200/50">
+            <div className="grid md:grid-cols-4 gap-6 items-center">
+              {/* Compact Client Section */}
               <div className="text-center">
-                <div className="relative inline-block mb-4">
+                <div className="relative inline-block mb-3">
                   <img
                     src={current.photo}
                     alt={current.name}
-                    className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover border-4 border-amber-300 shadow-xl sepia-[0.3] transition-all duration-500"
+                    className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border-3 border-amber-300 shadow-xl sepia-[0.2] transition-all duration-700"
                   />
-                  <div className="absolute -bottom-2 -right-2 bg-gradient-to-br from-amber-500 to-orange-600 p-2 rounded-full shadow-lg">
-                    <Camera className="w-4 h-4 text-white" />
-                  </div>
+                  {/* <div className="absolute -bottom-1 -right-1 bg-gradient-to-br from-amber-500 to-orange-500 p-1.5 rounded-full shadow-lg">
+                    <Camera className="w-3 h-3 text-white" />
+                  </div> */}
                 </div>
 
-                <h4 className="text-xl font-bold text-amber-900 mb-1 font-serif">
+                <h4 className="text-lg font-bold text-amber-900 mb-1 font-serif">
                   {current.name}
                 </h4>
-                <p className="text-amber-700 font-medium">{current.role}</p>
+                <p className="text-amber-700 text-sm mb-2">{current.role}</p>
+                <span className="text-xs bg-amber-100 text-amber-600 px-2 py-1 rounded-full">
+                  {current.category}
+                </span>
 
-                {/* Rating */}
-                <div className="flex justify-center space-x-1 mt-3">
+                {/* Compact Rating */}
+                <div className="flex justify-center space-x-1 mt-2">
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className="w-4 h-4 text-amber-500 fill-current"
+                      className="w-3 h-3 text-amber-500 fill-current"
                     />
                   ))}
                 </div>
               </div>
 
-              {/* Testimonial Content */}
-              <div className="md:col-span-2">
+              {/* Compact Testimonial Content */}
+              <div className="md:col-span-3">
                 <div className="relative">
-                  <Quote className="absolute -top-4 -left-4 w-12 h-12 text-amber-200 fill-current opacity-40" />
+                  <Quote className="absolute -top-2 -left-2 w-8 h-8 text-amber-200 fill-current opacity-40" />
 
-                  <blockquote className="text-lg md:text-xl text-amber-900 leading-relaxed font-light italic pl-6 mb-6">
+                  <blockquote className="text-base md:text-lg text-amber-900 leading-relaxed font-light italic pl-4 pr-2">
                     "{current.text}"
                   </blockquote>
 
-                  <Quote className="absolute -bottom-4 -right-4 w-12 h-12 text-amber-200 fill-current opacity-40 rotate-180" />
+                  <Quote className="absolute -bottom-2 -right-2 w-8 h-8 text-amber-200 fill-current opacity-40 rotate-180" />
+                </div>
+
+                {/* Trust indicators */}
+                <div className="flex items-center justify-start space-x-4 mt-4 pt-3 border-t border-amber-200">
+                  <div className="flex items-center space-x-1 text-amber-700">
+                    <Heart className="w-3 h-3 text-red-500 fill-current" />
+                    <span className="text-xs">Verified</span>
+                  </div>
+                  <div className="flex items-center space-x-1 text-amber-700">
+                    <Camera className="w-3 h-3 text-amber-600" />
+                    <span className="text-xs">Professional</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Navigation */}
-          <div className="flex items-center justify-center mt-8 space-x-6">
+          {/* Compact Navigation */}
+          <div className="flex items-center justify-center mt-6 space-x-4">
             <button
               onClick={prevTestimonial}
-              className="bg-white/20 hover:bg-white/30 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 backdrop-blur-sm"
+              className="bg-white/20 hover:bg-white/30 text-white p-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 backdrop-blur-sm"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4" />
             </button>
 
-            {/* Dots */}
+            {/* Compact Dots */}
             <div className="flex space-x-2">
               {testimonials.map((_, index) => (
                 <button
@@ -169,8 +197,8 @@ const VintageTestimonials = () => {
                   onClick={() => setCurrentTestimonial(index)}
                   className={`transition-all duration-300 rounded-full ${
                     index === currentTestimonial
-                      ? "w-8 h-3 bg-white shadow-lg"
-                      : "w-3 h-3 bg-white/50 hover:bg-white/70"
+                      ? "w-6 h-2 bg-white shadow-lg"
+                      : "w-2 h-2 bg-white/60 hover:bg-white/80"
                   }`}
                 />
               ))}
@@ -178,43 +206,42 @@ const VintageTestimonials = () => {
 
             <button
               onClick={nextTestimonial}
-              className="bg-white/20 hover:bg-white/30 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 backdrop-blur-sm"
+              className="bg-white/20 hover:bg-white/30 text-white p-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 backdrop-blur-sm"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4" />
             </button>
+          </div>
+
+          {/* Counter */}
+          <div className="text-center mt-3">
+            <p className="text-white/70 text-xs">
+              {currentTestimonial + 1} / {testimonials.length}
+            </p>
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-amber-600 to-orange-600 p-6 md:p-8 rounded-2xl shadow-xl max-w-2xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 font-serif">
-              Create Your Own Story
+        {/* Compact CTA */}
+        <div className="text-center mt-10">
+          <div className="bg-gradient-to-r from-amber-600/90 to-orange-600/90 backdrop-blur-xl p-6 rounded-2xl shadow-xl max-w-2xl mx-auto border border-amber-400/30">
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3 font-serif">
+              Create Your Story
             </h3>
-            <p className="text-amber-100 mb-6">
-              Join our family of satisfied clients and capture your precious
-              moments with vintage elegance
+            <p className="text-amber-100 text-sm mb-4">
+              Join our satisfied clients and capture your moments with vintage
+              elegance
             </p>
 
-            <button className="bg-white hover:bg-amber-50 text-amber-700 px-8 py-3 rounded-full font-bold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-              Book Your Session
-            </button>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <button className="bg-white hover:bg-amber-50 text-amber-700 px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                Book Session
+              </button>
+              <button className="border border-white text-white hover:bg-white hover:text-amber-700 px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300">
+                View Portfolio
+              </button>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Custom Animations */}
-      <style jsx>{`
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0px) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-10px) rotate(5deg);
-          }
-        }
-      `}</style>
     </section>
   );
 };
